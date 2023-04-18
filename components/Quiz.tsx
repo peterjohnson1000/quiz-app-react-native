@@ -71,7 +71,7 @@ const Quiz = ({ navigation }: Props) => {
                             <Text style={{ backgroundColor: "#19376D", paddingHorizontal: 130, color: "white", paddingVertical: 20, borderRadius: 25, marginBottom: 20 }}>{decodeURIComponent(options[2])}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => { handleSelectedOptions(options[3]) }}>
-                            <Text style={{ backgroundColor: "#19376D", paddingHorizontal: 130, color: "white", paddingVertical: 20, borderRadius: 25, marginBottom: 20 }}>{decodeURIComponent(options[3])}4</Text>
+                            <Text style={{ backgroundColor: "#19376D", paddingHorizontal: 130, color: "white", paddingVertical: 20, borderRadius: 25, marginBottom: 20 }}>{decodeURIComponent(options[3])}</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
@@ -82,11 +82,12 @@ const Quiz = ({ navigation }: Props) => {
                             {questionNumber !== 9 && < TouchableOpacity onPress={nextQuestion}>
                                 <Text style={{ fontSize: 15, backgroundColor: "#19376D", color: "white", borderRadius: 25, paddingHorizontal: 25, paddingVertical: 15 }}>Next</Text>
                             </TouchableOpacity>}
-                            {questionNumber === 9 && < TouchableOpacity>
+                            {/* {questionNumber === 9 && < TouchableOpacity onPress={() => navigation.navigate("Result", { score: score })}>
                                 <Text style={{ fontSize: 15, backgroundColor: "green", color: "white", borderRadius: 25, paddingHorizontal: 25, paddingVertical: 15 }}>End</Text>
-                            </TouchableOpacity>}
+                            </TouchableOpacity>} */}
                         </View>
                     </View>
+                    {questionNumber === 9 && navigation.navigate("Result", { score: score })}
                 </View>
             }
 

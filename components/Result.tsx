@@ -6,16 +6,17 @@ interface Props {
     navigation: NavigationProp<Record<string, object>>;
 }
 
-const Result = ({ navigation }: Props) => {
+const Result = ({ navigation, route }: Props) => {
+    const { score } = route.params;
     return (
-        <View style={{ alignItems: "center" }}>
-            <Text>Hello World</Text>
+        <View style={{ alignItems: "center", flex: 1, justifyContent: "center" }}>
             <View>
-                <Image source={require("/Users/admin/Desktop/React-Native/quizapp/assets/homepage_image.png")} style={{ width: 300, height: 300 }} />
+                <Image source={require("/Users/admin/Desktop/React-Native/quizapp/assets/victory_image.png")} style={{ width: 300, height: 300 }} />
+                <Text style={{ fontSize: 30, paddingBottom: 20, textAlign: "center" }}>Your Score is {score}</Text>
             </View>
             <View>
                 <TouchableOpacity onPress={() => navigation.navigate("Home", {})}>
-                    <Text>Homepage</Text>
+                    <Text style={{ fontSize: 15, backgroundColor: "#19376D", color: "white", borderRadius: 25, paddingHorizontal: 25, paddingVertical: 15 }}>Homepage</Text>
                 </TouchableOpacity>
             </View>
         </View>
